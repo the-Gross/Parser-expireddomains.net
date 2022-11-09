@@ -1,0 +1,95 @@
+Make(delphi)
+ver(4.05 build 186)
+Add(MainForm,2953706,21,105)
+{
+ Width=366
+ Height=609
+ Position=1
+}
+Add(HTTP_Get,13966554,658,301)
+{
+ Wait=0
+ link(onDownload,15779580:doConvert,[])
+ link(onStop,6332408:doWork3,[(699,328)(699,365)(368,365)])
+ link(URL,13911861:Text,[])
+}
+Add(Convertor,15779580,714,308)
+{
+ Mode=11
+ link(onResult,1358154:doSearch,[])
+}
+Add(Button,11475265,315,301)
+{
+ Left=5
+ Top=515
+ Width=340
+ Height=50
+ link(onClick,6332408:doWork2,[])
+}
+Add(Edit,13911861,658,245)
+{
+ Left=5
+ Top=10
+ Width=340
+ Text="https://www.expireddomains.net/deleted-domains/?start=0"
+ link(onChange,13966554:doDownload,[(702,251)(702,279)(646,279)(646,307)])
+}
+Add(Memo,4397354,945,308)
+{
+ Left=5
+ Top=40
+ Width=340
+ Height=465
+ ScrollBars=2
+}
+Add(StyleXP,576142,84,91)
+{
+}
+Add(BlockFind,1358154,784,308)
+{
+ IncludeBlock=1
+ StartBlock="<td class="field_domain"><a href=""
+ EndBlock="</td>"
+ Point(onNotFind)
+ link(onSearch,7611012:doSearch,[])
+}
+Add(CounterEx,2751593,539,301)
+{
+ Min=-1
+ Step=25
+ Default=-1
+ Point(doMax)
+ Point(doReset)
+ Point(Min)
+ Point(Max)
+ Point(onThroughMax)
+ Point(onSet)
+ link(onNext,5908634:doStrCat,[(573,307)(573,251)])
+}
+Add(HubEx,6332408,364,301)
+{
+ link(onEvent,4069596:doTimer,[])
+}
+Add(StrCat,5908634,581,245)
+{
+ Str1="https://www.expireddomains.net/deleted-domains/?start="
+ link(onStrCat,13911861:doText,[])
+}
+Add(Timer,4069596,441,301)
+{
+ Interval=5000
+ link(onTimer,1448772:doEvent1,[(485,307)(485,314)])
+}
+Add(Hub,1448772,497,308)
+{
+ link(onEvent1,4069596:doStop,[(523,314)(523,302)(429,302)(429,314)])
+ link(onEvent2,2751593:doNext,[(525,321)(525,307)])
+}
+Add(BlockFind,7611012,861,308)
+{
+ IncludeBlock=1
+ StartBlock="">"
+ EndBlock="</a>"
+ Point(onNotFind)
+ link(onSearch,4397354:doAdd,[])
+}
