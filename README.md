@@ -4,3 +4,5 @@
 ![Image alt](https://github.com/the-Gross/Parser-expireddomains.net/blob/main/Screenshot.png)
 
 * Project8.sha - исходник проекта
+
+Пример простого обхода блокировки парсинга по количеству запросов.
